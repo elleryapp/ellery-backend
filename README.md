@@ -66,4 +66,6 @@ All API endpoints have the prefix `api/<elleryVersion>`. All the API endpoints r
     * **GET** `/prediction`
         * Returns a personalized prediction set of your academic path, using our analysis engine
         * Returns {expectedGpa, recommendedCourses:[]}
-    
+
+## Docker Environment
+A Docker image of our entire backend's environment is available at [https://hub.docker.com/r/alastairparagas/ellery_web](https://hub.docker.com/r/alastairparagas/ellery_web). This includes all of the environment dependencies needed to run ellery, from the R statistics package, to Node, PhantomJS and CasperJS.

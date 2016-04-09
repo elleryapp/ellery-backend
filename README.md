@@ -8,6 +8,35 @@ In our case, we created a demonstration of Ellery interfacing with our universit
 ## Statistical Analysis
 Our backend utilizes data gathered from transcripts and online grade distributions present on your student portal. Using this, we determine how well you will do in specific courses and on your major as a whole. Currently, our statistical inference only works for Computer Science majors (because of time constraints, but the applications are endless).
 
+Under the hood, our backend passes a JSON file of the student's academic data to the analysis engine that does our predictions. A sample of the passed data looks like this:
+```javascript
+{
+    "semesters": [{
+        "semester": "fall",
+        "year": "2012",
+        "termGpa": "4.0",
+        "cumulativeGpa": "3.5",
+        "courses": [{
+            "id": "CHM 1045", 
+            "credits": "3.0",
+            "creditsEarned": "9.0",
+        }, {
+            "id": "COP2210",
+            "credits": "3.0",
+            "creditsEarned": "12.0"
+        }]
+    }]
+}
+```
+
+The analysis engine returns this, which the backend API shuttles forward to the front-end:
+```javascript
+{
+    "expectedGpa": "3.0", 
+    "recommendedCourses": ["CHM 1045"]
+}
+```
+
 ## API Endpoints
 All API endpoints have the prefix `api/<elleryVersion>`. All the API endpoints return an output that has the form:
 
@@ -28,11 +57,11 @@ All API endpoints have the prefix `api/<elleryVersion>`. All the API endpoints r
         * `token=<jwtToken>` as part of the request parameters
     * **GET** `/courses/present`
         * Returns a list of all courses that a student is currently taking
-        * [{courseType, courseId, sectionNumber, instructor, [{days, time}], location}]
+        * [{courseType, courseId, sectionNumber, instructor, schedule:[{days, time}], location}]
     * **GET** `/courses/all`
         * Returns a list of all courses that a student has taken up to now
-        * [{courseType, courseId, sectionNumber, instructor, [{days, time}], location}]
+        * [{courseType, courseId, sectionNumber, instructor, schedule:[{days, time}], location}]
     * **GET** `/prediction`
         * Returns a personalized prediction set of your academic path, using our analysis engine
-        * {expectedGpa, [{courseType, courseId}]}
+        * {expectedGpa, recommendedCourses:[]}
     

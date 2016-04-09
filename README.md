@@ -69,3 +69,5 @@ All API endpoints have the prefix `api/<elleryVersion>`. All the API endpoints r
 
 ## Docker Environment
 A Docker image of our entire backend's environment is available at [https://hub.docker.com/r/alastairparagas/ellery_web](https://hub.docker.com/r/alastairparagas/ellery_web). This includes all of the environment dependencies needed to run ellery, from the R statistics package, to Node, PhantomJS and CasperJS.
+
+By default, the Docker container is exposed at port `8000`. Mount the codebase volume at `/source`. Make sure that when running the container, to run the backend app's entrypoint as `node /source/<entryFileHere>`.

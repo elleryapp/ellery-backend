@@ -50,18 +50,20 @@ All API endpoints have the prefix `api/<elleryVersion>`. All the API endpoints r
 
 1. `/login`
     * Given FIU credentials, return a JWT Token with the user's type (permissions), university email address, system supplied unique identifier and name.
-        * {jwtToken}
+        * **POST**
+        * Accepts {username, password}
+        * Returns {jwtToken}
 2. `/student`
     * All these API endpoints require either an: 
         * `Authorization: Bearer <jwtToken>` provided as the Authorization header **OR** 
         * `token=<jwtToken>` as part of the request parameters
     * **GET** `/courses/present`
         * Returns a list of all courses that a student is currently taking
-        * [{courseType, courseId, sectionNumber, instructor, schedule:[{days, time}], location}]
+        * Returns [{courseType, courseId, sectionNumber, instructor, schedule:[{days, time}], location}]
     * **GET** `/courses/all`
         * Returns a list of all courses that a student has taken up to now
-        * [{courseType, courseId, sectionNumber, instructor, schedule:[{days, time}], location}]
+        * Returns [{courseType, courseId, sectionNumber, instructor, schedule:[{days, time}], location}]
     * **GET** `/prediction`
         * Returns a personalized prediction set of your academic path, using our analysis engine
-        * {expectedGpa, recommendedCourses:[]}
+        * Returns {expectedGpa, recommendedCourses:[]}
     

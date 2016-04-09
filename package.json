@@ -1,0 +1,25 @@
+{
+  "name": "ellery-backend",
+  "version": "1.0.0",
+  "description": "Ellery is your university's student portal, made smarter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/elleryapp/ellery-backend.git"
+  },
+  "keywords": [
+    "ellery",
+    "node",
+    "sudo",
+    "hackstetson"
+  ],
+  "author": "Alastair Paragas <alastairparagas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elleryapp/ellery-backend/issues"
+  },
+  "homepage": "https://github.com/elleryapp/ellery-backend#readme"
+}

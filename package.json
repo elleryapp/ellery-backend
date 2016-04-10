@@ -25,6 +25,8 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
+    "jquery": "^2.2.3",
+    "jsonwebtoken": "^5.7.0",
     "node-env-file": "^0.1.8",
     "spooky": "^0.2.5"
   }
